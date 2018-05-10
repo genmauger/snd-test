@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= profile.first_name %></td>
+        <td><%= profile.last_name %></td>
+        <td><%= image_tag profile.image_url(:medium), :class => "style_image" unless profile.image_data.nil? %></td>
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Add Facility', storage_facilities_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

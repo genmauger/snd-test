@@ -1,0 +1,8 @@
+<h1>Store Next Door</h1>
+
+<p><%= link_to 'View Available Spaces', facility_spaces_path %></p>
+
+<!--Link to current facilities and bookings here-->
+
+<%= link_to 'Current Properties', storage_facilities_path(current_user.id) unless current_user.nil? %>
+

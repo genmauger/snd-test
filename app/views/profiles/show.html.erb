@@ -1,0 +1,56 @@
+<div class="show_text">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= @profile.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= @profile.last_name %>
+  </p>
+
+  <p>
+    <strong>Mobile:</strong>
+    <%= @profile.mobile %>
+  </p>
+
+  <p>
+    <strong>Street address:</strong>
+    <%= @profile.street_address %>
+  </p>
+
+  <p>
+    <strong>Suburb:</strong>
+    <%= @profile.suburb %>
+  </p>
+
+  <p>
+    <strong>Postcode:</strong>
+    <%= @profile.postcode %>
+  </p>
+
+  <p>
+    <strong>Country:</strong>
+    <%= @profile.country %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @profile.image_url(:medium), class: "style_image" unless @profile.image_data.nil?%>
+  </p>
+
+  <p>
+    <strong>Location</strong>
+      <%= image_tag ("https://maps.googleapis.com/maps/api/staticmap?center=#{@profile.latitude},#{@profile.longitude}&zoom=12&size=400x200&markers=color:red%7Clabel:#{@profile.first_name.first}%7C#{@profile.latitude},#{@profile.longitude}&key=AIzaSyAY6SDoNkrh8eJwG-lZWKK1d2RiNvXbPmg") %>
+  </p>
+</div>
+
+
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <%= link_to 'Back', profiles_path %> |
+  <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Add Facility', storage_facilities_path %>
+
+  <%# AIzaSyAY6SDoNkrh8eJwG-lZWKK1d2RiNvXbPmg %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @facility_space.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @facility_space.width %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @facility_space.length %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= number_to_currency @facility_space.price_in_dollars %>
+</p>
+
+<p>
+  <strong>Image data:</strong>
+  <%= image_tag @facility_space.image_url(:medium), :class => "style_image" unless @facility_space.image_data.nil? %>
+</p>
+
+<% if user_signed_in? %>
+  <%= render '/charges/charge_form' %>
+<% else %>
+  <%= link_to 'Sign Up', new_user_registration_path %>
+<% end %>
+
+<%= link_to 'Edit', edit_facility_space_path(@facility_space) %> |
+<%= link_to 'Back', facility_spaces_path %>
